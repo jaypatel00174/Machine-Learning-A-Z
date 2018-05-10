@@ -22,4 +22,21 @@ database$Purchased = factor(database$Purchased,
                             levels = c("Yes","No"),
                             labels = c(1,0))
 
+# Train-test split
+# we will use caTools package for that let's install first
+#install.packages(caTools)
 
+#selecting library first
+library(caTools)
+
+set.seed(45)
+#define split
+split = sample.split(database$Purchased,SplitRatio = 0.8)
+
+# Making actual split in train test
+training_set = subset(database, split==TRUE)
+test_set = subset(database,split==FALSE)
+
+#Scaling Features
+training_set[,2:3] = scale(training_set[,2:3])
+test_set[,2:3] = scale(test_set[,2:3])
