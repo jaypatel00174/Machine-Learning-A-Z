@@ -24,7 +24,7 @@ database$Purchased = factor(database$Purchased,
 
 # Train-test split
 # we will use caTools package for that let's install first
-#install.packages(caTools)
+#install.packages("caTools")
 
 #selecting library first
 library(caTools)
